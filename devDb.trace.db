@@ -1,0 +1,6 @@
+11-07 16:34:06 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER_ROLE" not found; SQL statement:
+alter table user_role drop constraint FK143BF46A434E3647 [42102-164]
+11-07 16:34:06 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER_ROLE" not found; SQL statement:
+alter table user_role drop constraint FK143BF46AE878FA27 [42102-164]
