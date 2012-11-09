@@ -89,4 +89,8 @@ class IndexPageSpec extends GebSpec {
   def "the cookie session should expire when the max inactive interval is exceeded"(){
 
   }
+
+  def "the cookie session should be compatible with spring-security"(){
+    
+  }
 }
