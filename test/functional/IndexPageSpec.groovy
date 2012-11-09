@@ -20,38 +20,38 @@ class IndexPageSpec extends GebSpec {
       to TestWebflow
     then:
       at TestWebflow
-      $("#1").text() == "flowStart" 
+      $("#v1").text() == "flowStart" 
 
     and:
       next.click()
     then:
       at TestWebflow
-      $("#1").text() == "flowStart" 
-      $("#2").text() == "step1" 
-      $("#3").text() == ""
-      $("#4").text() == ""
+      $("#v1").text() == "flowStart" 
+      $("#v2").text() == "step1" 
+      $("#v3").text() == ""
+      $("#v4").text() == ""
 
     and:
       next.click()
     then:
       at TestWebflow
-      $("#1").text() == "flowStart" 
-      $("#2").text() == "step1" 
-      $("#3").text() == "step2"
-      $("#4").text() == ""
+      $("#v1").text() == "flowStart" 
+      $("#v2").text() == "step1" 
+      $("#v3").text() == "step2"
+      $("#v4").text() == ""
  
     and:
       next.click()
     then:
       at TestWebflow
-      $("#flowScope").find("#1").text() == "flowStart" 
-      $("#flowScope").find("#2").text() == "step1" 
-      $("#flowScope").find("#3").text() == "step2" 
-      $("#flowScope").find("#4").text() == "step3" 
-      $("#dbEntries").find("#1").text() == "flowStart" 
-      $("#dbEntries").find("#2").text() == "step1" 
-      $("#dbEntries").find("#3").text() == "step2" 
-      $("#dbEntries").find("#4").text() == "step3" 
+      $("#flowScope").find("#v1").text() == "flowStart" 
+      $("#flowScope").find("#v2").text() == "step1" 
+      $("#flowScope").find("#v3").text() == "step2" 
+      $("#flowScope").find("#v4").text() == "step3" 
+      $("#dbEntries").find("#v1").text() == "flowStart" 
+      $("#dbEntries").find("#v2").text() == "step1" 
+      $("#dbEntries").find("#v3").text() == "step2" 
+      $("#dbEntries").find("#v4").text() == "step3" 
   }
 
   def "cookie session plugin should work with the flash scope"(){
@@ -83,7 +83,33 @@ class IndexPageSpec extends GebSpec {
   }
 
   def "the cookie session should support being invalidated"(){
+    given:
+      to AssignToSession, key: "lastname", val: "lucchesi"
+      to AssignToSession, key: "firstname", val: "benjamin"
+    expect:
+      at AssignToSession
 
+    when:
+      to DumpSession
+    then:
+      $("#lastname").text() == "lucchesi"
+      $("#firstname").text() == "benjamin"
+
+    when:
+      go "index/invalidateSession"
+    and:
+      to DumpSession
+    then:
+      $("#lastname").text() == null
+      $("#firstname").text() == null
+
+    when:
+      to AssignToSession, key: "lastname", val: "lucchesi"
+      to AssignToSession, key: "firstname", val: "benjamin"
+      to DumpSession
+    then: 
+      $("#lastname").text() == "lucchesi"
+      $("#firstname").text() == "benjamin"
   }
 
   def "the cookie session should expire when the max inactive interval is exceeded"(){
@@ -91,6 +117,17 @@ class IndexPageSpec extends GebSpec {
   }
 
   def "the cookie session should be compatible with spring-security"(){
-    
+    when:
+      to Login
+    then: 
+      at Login
+   
+    when:
+      username = "testuser"
+      password = "password"
+      submit.click()
+      go "index/whoami"
+    then:
+      $("#username").text() == "testuser"
   }
 }

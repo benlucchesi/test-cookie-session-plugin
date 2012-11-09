@@ -5,7 +5,7 @@
 <div id="flowScope">
   <ul>
     <g:each in="${flowScope}" var="it" status="i">
-      <li><span id="${i+1}">${it}</span></li>
+      <li><span id="v${i+1}">${it}</span></li>
     </g:each>
   </ul>
 </div>
@@ -14,7 +14,7 @@
 <div id="dbEntries">
   <ul>
     <g:each in="${dbEntries}" var="it" status="i">
-      <li><span id="${i+1}">${it.message}</span></li>
+      <li><span id="v${i+1}">${it.message}</span></li>
     </g:each>
   </ul>
 </div>

@@ -6,7 +6,7 @@ class IndexController {
     def springSecurityService
 
     def whoami(){
-      render springSecurityService.principal.username
+      render "<html><span id=\"username\">${springSecurityService.principal.username}</span></html>"
     }
   
     def assignToSession(){

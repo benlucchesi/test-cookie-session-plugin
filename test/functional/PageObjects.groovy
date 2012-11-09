@@ -41,3 +41,15 @@ class TestWebflow extends Page {
     cancel(required: false){ $('a',text:"Cancel") }
   }
 }
+
+class Login extends Page {
+ static at = { $('title').text() == "Login Page" }
+ static url = "login/auth"
+ static content = {
+    username { $('#username') }
+    password { $('#password') }
+    submit { $('#submit') }
+ }
+}
+
+
