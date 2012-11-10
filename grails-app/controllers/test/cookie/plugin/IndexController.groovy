@@ -4,6 +4,7 @@ import grails.converters.JSON
 class IndexController {
 
     def springSecurityService
+    def sessionRepository
 
     def whoami(){
       render "<html><span id=\"username\">${springSecurityService.principal.username}</span></html>"
@@ -95,5 +96,21 @@ class IndexController {
     def invalidateSession(){
       session.invalidate()
       render status: 200
+    }
+
+    def configureSessionRepository(){
+      if( params.maxInactiveInterval )
+        sessionRepository.maxInactiveInterval = params.maxInactiveInterval as int
+      if( params.cookieCount )
+        sessionRepository.cookieCount = params.cookieCount as int
+      if( params.maxCookieSize )
+        sessionRepository.maxCookieSize = params.maxCookieSize as int
+      if( params.cookieName )
+        sessionRepository.cookieName = params.cookieName
+
+      [ maxInactiveInterval: sessionRepository.maxInactiveInterval, 
+        cookieCount: sessionRepository.cookieCount,
+        maxCookieSize: sessionRepository.maxCookieSize,
+        cookieName: sessionRepository.cookieName ]
     }
 }

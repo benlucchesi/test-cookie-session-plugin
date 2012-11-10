@@ -57,6 +57,34 @@ class CookieSessionRepositorySpec extends IntegrationSpec {
       session.k3 == "v3"
   }
 
+  void "session repository should produce cookies that live only as long as the browser is open"(){
+    when:
+      sessionRepository.cookieCount = 1
+      sessionRepository.maxCookieSize = 4096
+      sessionRepository.maxInactiveInterval = -1
+      sessionRepository.cookieName = "testcookie"
+      sessionRepository.saveSession(session,response)
+
+    then:
+      response.cookies.size() == 1
+      response.cookies[0].name == "testcookie-0"
+      response.cookies[0].maxAge == -1
+  }
+
+  void "session repository should produce cookies that expire in the session timeout period"(){
+    when:
+      sessionRepository.cookieCount = 1
+      sessionRepository.maxCookieSize = 4096
+      sessionRepository.maxInactiveInterval = 10000
+      sessionRepository.cookieName = "testcookie"
+      sessionRepository.saveSession(session,response)
+
+    then:
+      response.cookies.size() == 1
+      response.cookies[0].name == "testcookie-0"
+      response.cookies[0].maxAge == 10
+  }
+
   void "session repository can encrypt data stored in the session"(){
 
   }

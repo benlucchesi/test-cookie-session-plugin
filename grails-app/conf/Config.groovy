@@ -110,6 +110,12 @@ grails.plugin.cookiesession.sessiontimeout = 120
 grails.plugin.cookiesession.cookiename = 'oatmeal'
 
 
+grails.plugin.cookiesession.id = "id"
+grails.plugin.cookiesession.timeout = 500
+grails.plugin.cookiesession.hmac.secret = "123456"
+grails.plugin.cookiesession.hmac.id = "hmacid"
+grails.plugin.cookiesession.hmac.algorithm = "HmacSHA1"
+
 // Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'test.cookie.plugin.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'test.cookie.plugin.UserRole'

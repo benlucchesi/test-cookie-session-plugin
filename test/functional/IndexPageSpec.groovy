@@ -113,7 +113,34 @@ class IndexPageSpec extends GebSpec {
   }
 
   def "the cookie session should expire when the max inactive interval is exceeded"(){
+    given:
+      go "index/configureSessionRepository?maxInactiveInterval=10000"
+      to AssignToSession, key: "lastname", val: "lucchesi"
+    expect:
+      at AssignToSession
+    
+    when:
+      to DumpSession
+    then:
+      $("#lastname").text() == "lucchesi"
 
+    when:
+     sleep(5000)
+     to DumpSession
+    then:
+      $("#lastname").text() == "lucchesi"
+
+    when:
+     sleep(11000)
+     to DumpSession
+    then:
+      $("#lastname").text() == null
+
+    when:
+      to AssignToSession, key: "lastname", val: "lucchesi"
+     to DumpSession
+    then:
+      $("#lastname").text() == "lucchesi"
   }
 
   def "the cookie session should be compatible with spring-security"(){
