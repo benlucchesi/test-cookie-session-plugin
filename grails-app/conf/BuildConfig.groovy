@@ -66,4 +66,4 @@ grails.project.dependency.resolution = {
     }
 }
 
-//grails.plugin.location.'grails-cookie-session' = "../grails-cookie-session-v2"
+grails.plugin.location.'grails-cookie-session' = "../grails-cookie-session-v2"
