@@ -45,6 +45,14 @@ class IndexController {
       }
     }
 
+    def redirectTest(){
+      flash.message = "this is a flash message"
+      redirect action: 'redirectTarget'
+    }
+
+    def redirectTarget(){
+    }
+
     def testFlow = {
       flowStart{
         action{

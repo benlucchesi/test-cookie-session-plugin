@@ -79,10 +79,10 @@ log4j = {
     
     //debug  'org.codehaus.groovy.grails.plugins'             // plugins
 
-    trace  'com.granicus.grails.plugins.cookiesession.CookieSessionFilter',
-           'com.granicus.grails.plugins.cookiesession.CookieSessionRepository',
-           'com.granicus.grails.plugins.cookiesession.SessionRepositoryResponseWrapper',
-           'com.granicus.grails.plugins.cookiesession.CookieSessionFilter.SessionRepositoryRequestWrapper'
+    trace 'com.granicus.grails.plugins.cookiesession.SessionRepositoryResponseWrapper'
+          //'com.granicus.grails.plugins.cookiesession.CookieSessionFilter',
+          //'com.granicus.grails.plugins.cookiesession.CookieSessionRepository',
+          //'com.granicus.grails.plugins.cookiesession.SessionRepositoryRequestWrapper'
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
@@ -102,8 +102,8 @@ log4j = {
 // test cryptoalgorithm /w different algorithms
 grails.plugin.cookiesession.enabled = true
 grails.plugin.cookiesession.encryptcookie = true
-grails.plugin.cookiesession.cryptoalgorithm = "AES" // DESEde,DES,AES,Blowfish
-//grails.plugin.cookiesession.secret = "12345678901234567890123456789012".bytes
+grails.plugin.cookiesession.cryptoalgorithm = "Blowfish" // DESEde,DES,AES,Blowfish
+grails.plugin.cookiesession.secret = "This is my secret."
 grails.plugin.cookiesession.cookiecount = 10
 grails.plugin.cookiesession.maxcookiesize = 3072
 grails.plugin.cookiesession.sessiontimeout = 120

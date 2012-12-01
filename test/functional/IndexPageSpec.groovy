@@ -157,4 +157,13 @@ class IndexPageSpec extends GebSpec {
     then:
       $("#username").text() == "testuser"
   }
+
+  def "the cookie session should be set and sent with controller redirects"(){
+    when:
+      to RedirectTest
+
+    then:
+      at RedirectTarget
+      flashMessage == "this is a flash message"
+  }
 }

@@ -52,4 +52,14 @@ class Login extends Page {
  }
 }
 
+class RedirectTest extends Page{
+  static url = "index/redirectTest"
+}
 
+class RedirectTarget extends Page{
+  static at = { $('title').text() == "Redirect Target" }
+  static url = "index/redirectTarget"
+  static content = {
+    flashMessage(wait:true) { $('#flashMessage').text() }
+  }
+}

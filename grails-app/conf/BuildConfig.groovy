@@ -59,6 +59,8 @@ grails.project.dependency.resolution = {
 
         runtime ":database-migration:1.1"
 
+        runtime ":cookie-session:2.0.2"
+
         compile ':cache:1.0.0'
 
         test ":geb:0.7.2",
@@ -66,4 +68,4 @@ grails.project.dependency.resolution = {
     }
 }
 
-grails.plugin.location.'grails-cookie-session' = "../grails-cookie-session-v2"
+//grails.plugin.location.'grails-cookie-session' = "../grails-cookie-session-v2"
