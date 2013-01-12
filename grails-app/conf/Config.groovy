@@ -79,10 +79,9 @@ log4j = {
     
     //debug  'org.codehaus.groovy.grails.plugins'             // plugins
 
-    trace 'com.granicus.grails.plugins.cookiesession.SessionRepositoryResponseWrapper'
-          //'com.granicus.grails.plugins.cookiesession.CookieSessionFilter',
-          //'com.granicus.grails.plugins.cookiesession.CookieSessionRepository',
-          //'com.granicus.grails.plugins.cookiesession.SessionRepositoryRequestWrapper'
+    trace 'com.granicus.grails.plugins.cookiesession.SessionRepositoryResponseWrapper',
+          'com.granicus.grails.plugins.cookiesession.SessionRepositoryRequestWrapper',
+          'com.granicus.grails.plugins.cookiesession.ExceptionCondenser'
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
@@ -91,7 +90,7 @@ log4j = {
            'org.codehaus.groovy.grails.web.mapping',        // URL mapping
            'org.codehaus.groovy.grails.commons',            // core / classloading
            'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
-            'org.codehaus.groovy.grails.plugins',             // plugins
+           'org.codehaus.groovy.grails.plugins',             // plugins
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
@@ -105,10 +104,10 @@ grails.plugin.cookiesession.encryptcookie = true
 grails.plugin.cookiesession.cryptoalgorithm = "Blowfish" // DESEde,DES,AES,Blowfish
 grails.plugin.cookiesession.secret = "This is my secret."
 grails.plugin.cookiesession.cookiecount = 10
-grails.plugin.cookiesession.maxcookiesize = 3072
+grails.plugin.cookiesession.maxcookiesize = 2048
 grails.plugin.cookiesession.sessiontimeout = 120
 grails.plugin.cookiesession.cookiename = 'oatmeal'
-
+grails.plugin.cookiesession.condenseexceptions = true
 
 grails.plugin.cookiesession.id = "id"
 grails.plugin.cookiesession.timeout = 500

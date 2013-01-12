@@ -16,6 +16,10 @@ class DumpSession extends Page {
   }
 }
 
+class StoreLargeException extends Page {
+  static url = "index/storeLargeException"
+}
+
 class AssignToFlash extends Page {
   static url = "index/assignToFlash"
   static content = {

@@ -121,4 +121,30 @@ class IndexController {
         maxCookieSize: sessionRepository.maxCookieSize,
         cookieName: sessionRepository.cookieName ]
     }
+
+  def maxRecurseCount = 0 
+  def recurseCount = 0
+  private def recurse(){
+    recurseCount++
+    if( recurseCount == maxRecurseCount )
+      throw new Exception("exception from recursive method: ${recurseCount}")
+    else
+      recurse()
+  }
+  def storeLargeException(){
+    try{
+      maxRecurseCount = 1900
+      recurse()
+    }
+    catch( excp ){
+      session.lastError = excp
+    }
+
+    def stackTrace = session.lastError.stackTrace.collect{ it.toString() }
+    render text: "stored exception: ${stackTrace}"
+  }
+
+  def throwException(){
+    throw new Exception("this is an exception")
+  }
 }

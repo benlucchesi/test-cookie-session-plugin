@@ -166,4 +166,14 @@ class IndexPageSpec extends GebSpec {
       at RedirectTarget
       flashMessage == "this is a flash message"
   }
+
+  def "exceptions should only be stored as strings"(){
+    when:
+      to StoreLargeException
+      sleep(2000)
+      to DumpSession
+
+    then:
+      $("#lastError").text() == "exception from recursive method: 1900"
+  }
 }

@@ -85,12 +85,47 @@ class CookieSessionRepositorySpec extends IntegrationSpec {
       response.cookies[0].maxAge == 10
   }
 
+  void "session exceeds max session size"(){
+    when: "when the session exceeds the the max storable session size"
+      session.setAttribute("key","ABCDEFGHIJ")
+      sessionRepository.cookieCount = 1
+      sessionRepository.maxCookieSize = 10
+      sessionRepository.cookieName = "testcookie"
+      sessionRepository.encryptCookie = false
+      sessionRepository.saveSession(session,response)
+
+    then:
+      thrown(Exception)
+  }
+
   void "session repository can encrypt data stored in the session"(){
+    when: "the session repository encrypts a session"
+      session.setAttribute("k1","v1")
+      session.setAttribute("k2","v2")
+      session.setAttribute("k3","v3")
+      sessionRepository.cookieCount = 5
+      sessionRepository.maxCookieSize = 4096
+      sessionRepository.cookieName = "testcookie"
+      sessionRepository.encryptCookie = true
+      sessionRepository.saveSession(session,response)
 
+    then: "the requisite number of cookie are created"
+      response.cookies.size() == 5
+      response.cookies[0].name == "testcookie-0"
+      response.cookies[1].name == "testcookie-1"
+      response.cookies[2].name == "testcookie-2"
+      response.cookies[3].name == "testcookie-3"
+      response.cookies[4].name == "testcookie-4"
+      response.cookies.each{
+        println "${it.name} : ${it.value}"
+      }
+
+    when: "the session is restored"
+      request.cookies = response.cookies
+      session = sessionRepository.restoreSession(request)
+    then: "the values are recoverable from the session"
+      session.k1 == "v1"
+      session.k2 == "v2"
+      session.k3 == "v3"
   }
-
-  void "session repository works with large session"(){
-
-  }
-
 }
