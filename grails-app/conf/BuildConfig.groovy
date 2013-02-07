@@ -34,12 +34,17 @@ grails.project.dependency.resolution = {
 
         // runtime 'mysql:mysql-connector-java:5.1.20'
 
-        test 'org.codehaus.geb:geb-spock:0.7.2',
-             'org.seleniumhq.selenium:selenium-chrome-driver:2.25.0',
-             'org.seleniumhq.selenium:selenium-support:2.25.0',
-             'org.seleniumhq.selenium:selenium-firefox-driver:2.25.0'
-             //'org.codehaus.geb:geb-junit4:0.7.0'
-            
+        compile "org.grails:grails-webflow:$grailsVersion"
+
+        test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
+
+        //test  'org.codehaus.geb:geb-spock:0.7.2'
+        test  'org.gebish:geb-spock:0.9.0-RC-1'
+
+        test  'org.seleniumhq.selenium:selenium-chrome-driver:2.25.0'
+        test  'org.seleniumhq.selenium:selenium-support:2.25.0'
+        test  'org.seleniumhq.selenium:selenium-firefox-driver:2.25.0'
+           
         test('org.seleniumhq.selenium:selenium-htmlunit-driver:2.25.0'){ 
           excludes 'xml-apis'
         }
@@ -50,22 +55,33 @@ grails.project.dependency.resolution = {
         runtime ":jquery:1.7.2"
         runtime ":resources:1.1.6"
 
+        compile ':webflow:2.0.0', {
+          exclude 'grails-webflow'
+        }
+
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0"
         //runtime ":cached-resources:1.0"
         //runtime ":yui-minify-resources:0.1.4"
 
+        runtime ":cookie-session:2.0.4"
+
         build ":tomcat:$grailsVersion"
 
         runtime ":database-migration:1.1"
 
-        //runtime ":cookie-session:2.0.2"
-
         compile ':cache:1.0.0'
 
-        test ":geb:0.7.2",
-             ":spock:0.6"
+        //test ":geb:0.7.2"
+        test ":geb:0.9.0-RC-1"
+        
+        test(":spock:0.7") {
+          exclude "spock-grails-support"
+        }        
+
+        //test ":spock:0.6"
     }
 }
 
-grails.plugin.location.'grails-cookie-session' = "../grails-cookie-session-v2"
+// uncomment during development and  assign path to local source. remember to comment out the compile statement above!
+//grails.plugin.location.'grails-cookie-session' = "../grails-cookie-session-v2"

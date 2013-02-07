@@ -1,8 +1,9 @@
 
 import geb.*
-import geb.spock.GebSpec
+//import geb.spock.GebSpec
+import geb.spock.GebReportingSpec
 
-class IndexPageSpec extends GebSpec {
+class IndexPageSpec extends GebReportingSpec {
 
   def "data written to the session should be retrievable from the session"(){
     given:

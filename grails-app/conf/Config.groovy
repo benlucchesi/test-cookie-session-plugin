@@ -79,9 +79,11 @@ log4j = {
     
     //debug  'org.codehaus.groovy.grails.plugins'             // plugins
 
-    trace 'com.granicus.grails.plugins.cookiesession.SessionRepositoryResponseWrapper',
+    info  'com.granicus.grails.plugins.cookiesession.SessionRepositoryResponseWrapper',
           'com.granicus.grails.plugins.cookiesession.SessionRepositoryRequestWrapper',
           'com.granicus.grails.plugins.cookiesession.ExceptionCondenser'
+    
+    info 'com.granicus.grails.plugins.cookiesession.CookieSessionRepository'
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
@@ -108,12 +110,7 @@ grails.plugin.cookiesession.maxcookiesize = 2048
 grails.plugin.cookiesession.sessiontimeout = 120
 grails.plugin.cookiesession.cookiename = 'oatmeal'
 grails.plugin.cookiesession.condenseexceptions = true
-
-grails.plugin.cookiesession.id = "id"
-grails.plugin.cookiesession.timeout = 500
-grails.plugin.cookiesession.hmac.secret = "123456"
-grails.plugin.cookiesession.hmac.id = "hmacid"
-grails.plugin.cookiesession.hmac.algorithm = "HmacSHA1"
+grails.plugin.cookiesession.serializer = 'kryo'
 
 // Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'test.cookie.plugin.User'

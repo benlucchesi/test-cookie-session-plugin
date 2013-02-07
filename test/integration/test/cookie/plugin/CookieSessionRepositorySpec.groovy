@@ -4,7 +4,6 @@ import grails.plugin.spock.IntegrationSpec
 import org.codehaus.groovy.grails.plugins.testing.*
 import com.granicus.grails.plugins.cookiesession.*
 
-//@TestFor(IndexController)
 class CookieSessionRepositorySpec extends IntegrationSpec {
 
   def sessionRepository 
