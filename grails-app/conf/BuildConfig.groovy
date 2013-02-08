@@ -5,6 +5,7 @@ grails.project.source.level = 1.6
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
 grails.project.dependency.resolution = {
+
     // inherit Grails' default dependencies
     inherits("global") {
         // specify dependency exclusions here; for example, uncomment this to disable ehcache:
@@ -36,10 +37,10 @@ grails.project.dependency.resolution = {
 
         compile "org.grails:grails-webflow:$grailsVersion"
 
-        test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
+       // test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
 
-        //test  'org.codehaus.geb:geb-spock:0.7.2'
-        test  'org.gebish:geb-spock:0.9.0-RC-1'
+        test  'org.codehaus.geb:geb-spock:0.7.2'
+        //test  'org.gebish:geb-spock:0.9.0-RC-1'
 
         test  'org.seleniumhq.selenium:selenium-chrome-driver:2.25.0'
         test  'org.seleniumhq.selenium:selenium-support:2.25.0'
@@ -64,22 +65,22 @@ grails.project.dependency.resolution = {
         //runtime ":cached-resources:1.0"
         //runtime ":yui-minify-resources:0.1.4"
 
-        runtime ":cookie-session:2.0.4"
+        runtime ":cookie-session:2.0.5"
 
-        build ":tomcat:$grailsVersion"
+        //build ":tomcat:$grailsVersion"
+        build ':jetty:2.0.2'
 
         runtime ":database-migration:1.1"
 
         compile ':cache:1.0.0'
 
-        //test ":geb:0.7.2"
-        test ":geb:0.9.0-RC-1"
+        test ":geb:0.7.2"
+        //test ":geb:0.9.0-RC-1"
         
-        test(":spock:0.7") {
-          exclude "spock-grails-support"
-        }        
-
-        //test ":spock:0.6"
+        //test(":spock:0.7") {
+        //  exclude "spock-grails-support"
+        //}        
+        test ":spock:0.6"
     }
 }
 

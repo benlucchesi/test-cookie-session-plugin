@@ -9,13 +9,6 @@
 
     <property name="hibernate.session_factory_name">session_factory</property>
 
-	<!--
-		<mapping package='com.books' />
-
-		<mapping class='com.books.Book' />
-
-		<mapping resource='someresource.hbm.xml'/>
-	-->
 	</session-factory>
 
 </hibernate-configuration>

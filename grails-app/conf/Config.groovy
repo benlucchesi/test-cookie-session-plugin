@@ -79,6 +79,9 @@ log4j = {
     
     //debug  'org.codehaus.groovy.grails.plugins'             // plugins
 
+    //debug 'org.eclipse.jetty'
+    debug 'org.eclipse.jetty.server.AbstractHttpConnection'
+
     info  'com.granicus.grails.plugins.cookiesession.SessionRepositoryResponseWrapper',
           'com.granicus.grails.plugins.cookiesession.SessionRepositoryRequestWrapper',
           'com.granicus.grails.plugins.cookiesession.ExceptionCondenser'
