@@ -37,10 +37,10 @@ grails.project.dependency.resolution = {
 
         compile "org.grails:grails-webflow:$grailsVersion"
 
-       // test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
+        test "org.spockframework:spock-grails-support:0.7-groovy-2.0" // 2.2
 
-        test  'org.codehaus.geb:geb-spock:0.7.2'
-        //test  'org.gebish:geb-spock:0.9.0-RC-1'
+        //test  'org.codehaus.geb:geb-spock:0.7.2'
+        test  'org.gebish:geb-spock:0.9.0-RC-1' // 2.2
 
         test  'org.seleniumhq.selenium:selenium-chrome-driver:2.25.0'
         test  'org.seleniumhq.selenium:selenium-support:2.25.0'
@@ -67,20 +67,20 @@ grails.project.dependency.resolution = {
 
         runtime ":cookie-session:2.0.5"
 
-        //build ":tomcat:$grailsVersion"
-        build ':jetty:2.0.2'
+        build ":tomcat:$grailsVersion"
+        //build ':jetty:2.0.2'
 
-        runtime ":database-migration:1.1"
+        runtime ":database-migration:1.3.2"
 
         compile ':cache:1.0.0'
 
-        test ":geb:0.7.2"
-        //test ":geb:0.9.0-RC-1"
+        //test ":geb:0.7.2"
+        test ":geb:0.9.0-RC-1" // 2.2
         
-        //test(":spock:0.7") {
-        //  exclude "spock-grails-support"
-        //}        
-        test ":spock:0.6"
+        test(":spock:0.7") {
+          exclude "spock-grails-support"
+        } 
+        //test ":spock:0.6"
     }
 }
 
