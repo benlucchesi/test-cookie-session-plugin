@@ -4,3 +4,18 @@ alter table user_role drop constraint FK143BF46A434E3647 [42102-164]
 11-07 16:34:06 jdbc[2]: exception
 org.h2.jdbc.JdbcSQLException: Table "USER_ROLE" not found; SQL statement:
 alter table user_role drop constraint FK143BF46AE878FA27 [42102-164]
+02-10 22:15:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "ACL_ENTRY" not found; SQL statement:
+alter table acl_entry drop constraint FK5302D47D8FDB88D5 [42102-164]
+02-10 22:15:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "ACL_ENTRY" not found; SQL statement:
+alter table acl_entry drop constraint FK5302D47DB0D9DC4D [42102-164]
+02-10 22:15:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "ACL_OBJECT_IDENTITY" not found; SQL statement:
+alter table acl_object_identity drop constraint FK2A2BB009A50290B8 [42102-164]
+02-10 22:15:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "ACL_OBJECT_IDENTITY" not found; SQL statement:
+alter table acl_object_identity drop constraint FK2A2BB00970422CC5 [42102-164]
+02-10 22:15:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "ACL_OBJECT_IDENTITY" not found; SQL statement:
+alter table acl_object_identity drop constraint FK2A2BB00990EC1949 [42102-164]

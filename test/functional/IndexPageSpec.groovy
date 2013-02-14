@@ -139,7 +139,7 @@ class IndexPageSpec extends GebReportingSpec {
 
     when:
       to AssignToSession, key: "lastname", val: "lucchesi"
-     to DumpSession
+      to DumpSession
     then:
       $("#lastname").text() == "lucchesi"
   }
@@ -154,9 +154,24 @@ class IndexPageSpec extends GebReportingSpec {
       username = "testuser"
       password = "password"
       submit.click()
-      go "index/whoami"
+      to WhoAmI
     then:
-      $("#username").text() == "testuser"
+      username == "testuser"
+  }
+
+  def "the cookie session should be method compatible with Secured attributes"(){
+    when:
+      to SecuredPage
+    then: 
+      at Login
+   
+    when:
+      username = "testuser"
+      password = "password"
+      submit.click()
+      to SecuredPage
+    then:
+      username == "testuser"
   }
 
   def "the cookie session should be set and sent with controller redirects"(){
@@ -176,5 +191,40 @@ class IndexPageSpec extends GebReportingSpec {
 
     then:
       $("#lastError").text() == "exception from recursive method: 1900"
+  }
+
+  def "detect Locale serialization problem after multiple refreshes"(){
+   when:
+      to SecuredPage
+    then: 
+      at Login
+   
+    when:
+      username = "testuser"
+      password = "password"
+      submit.click()
+      to SecuredPage
+    then:
+      username == "testuser"
+    
+    when: 
+      to WhoAmI
+    then:
+      username == "testuser"
+  }
+
+  def "test reauthenticate security method"(){
+    when: 
+      to  Logout
+      to  WhoAmI
+    then:
+      username != "testuser"
+
+    when:
+      to  Reauthenticate
+      to  WhoAmI
+
+    then:
+      username == "testuser"
   }
 }

@@ -56,6 +56,10 @@ class Login extends Page {
  }
 }
 
+class Logout extends Page {
+ static url = "logout"
+}
+
 class RedirectTest extends Page{
   static url = "index/redirectTest"
 }
@@ -66,4 +70,22 @@ class RedirectTarget extends Page{
   static content = {
     flashMessage(wait:true) { $('#flashMessage').text() }
   }
+}
+
+class WhoAmI extends Page{
+  static url = "index/whoami"
+  static content = {
+    username { $("#username").text() } 
+  }
+}
+
+class SecuredPage extends Page{
+  static url = "index/securedMethod"
+  static content = {
+    username(wait:true) { $("#username").text() } 
+  }
+}
+
+class Reauthenticate extends Page{
+  static url = "index/reauthenticate"
 }

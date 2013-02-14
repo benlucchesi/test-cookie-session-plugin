@@ -1,5 +1,7 @@
 package test.cookie.plugin
 import grails.converters.JSON
+import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
+import grails.plugins.springsecurity.Secured
 
 class IndexController {
 
@@ -7,7 +9,10 @@ class IndexController {
     def sessionRepository
 
     def whoami(){
-      render "<html><span id=\"username\">${springSecurityService.principal.username}</span></html>"
+      if( springSecurityService.isLoggedIn() )
+        render "<html><span id=\"username\">${springSecurityService.principal.username}</span></html>"
+      else
+        render "<html><span id=\"username\"></span></html>"
     }
   
     def assignToSession(){
@@ -146,5 +151,21 @@ class IndexController {
 
   def throwException(){
     throw new Exception("this is an exception")
+  }
+
+  def reauthenticate(){
+    //springSecurityService.reauthenticate "testuser"
+    println "Session before reauthenticate: ${session}"
+    SpringSecurityUtils.reauthenticate "testuser", "password"
+    println "Session after reauthenticate: ${session}"
+    render "reauthenticated"
+  }
+
+  @Secured(['ROLE_USER'])
+  def securedMethod(){
+    if( springSecurityService.isLoggedIn() )
+      render "<html><span id=\"username\">${springSecurityService.principal.username}</span></html>"
+    else
+      render "<html><span id=\"username\"></span></html>"
   }
 }

@@ -13,7 +13,12 @@ class BootStrap {
       user.passwordExpired = false
 
       user.save(true)
+
+      def userRole = new test.cookie.plugin.Role(authority: 'ROLE_USER').save(failOnError: true)
+
+      test.cookie.plugin.UserRole.create(user, userRole).save(failOnError: true)
     }
+
     def destroy = {
     }
 }
