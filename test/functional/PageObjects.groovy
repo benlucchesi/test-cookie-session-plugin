@@ -89,3 +89,10 @@ class SecuredPage extends Page{
 class Reauthenticate extends Page{
   static url = "index/reauthenticate"
 }
+
+class SessionExists extends Page{
+  static url = "index/sessionExists"
+  static content = {
+    sessionExists{ $().text().toBoolean() } 
+  }
+}

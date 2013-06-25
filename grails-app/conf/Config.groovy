@@ -80,17 +80,19 @@ log4j = {
     //debug  'org.codehaus.groovy.grails.plugins'             // plugins
 
     //debug 'org.eclipse.jetty'
-    debug 'org.eclipse.jetty.server.AbstractHttpConnection'
+    //debug 'org.eclipse.jetty.server.AbstractHttpConnection'
 
     //trace 'com.granicus.grails.plugins.cookiesession.SessionRepositoryResponseWrapper'
     //trace 'com.granicus.grails.plugins.cookiesession.SessionRepositoryRequestWrapper'
+
     //trace 'com.granicus.grails.plugins.cookiesession.ExceptionCondenser'
-    trace   'testapp.DumpSession'
-    trace   'com.granicus.grails.plugins.cookiesession.SecurityContextSessionPersistenceListener'
+    //trace   'testapp.DumpSession'
+    //trace   'com.granicus.grails.plugins.cookiesession.SecurityContextSessionPersistenceListener'
           
-    trace 'com.granicus.grails.plugins.cookiesession.JavaSessionSerializer'
-    trace   'com.granicus.grails.plugins.cookiesession.KryoSessionSerializer'
-    trace 'com.granicus.grails.plugins.cookiesession.CookieSessionRepository'
+    //trace 'com.granicus.grails.plugins.cookiesession.JavaSessionSerializer'
+    //trace 'com.granicus.grails.plugins.cookiesession.KryoSessionSerializer'
+    //trace 'com.granicus.grails.plugins.cookiesession.CookieSessionRepository'
+    trace 'com.granicus.grails.plugins.cookiesession.GrailsUserSerializer'
 
     trace 'org.springframework.security.web.context.SecurityContextPersistenceFilter',
           'org.springframework.security.web.context.HttpSessionSecurityContextRepository'
@@ -115,14 +117,14 @@ log4j = {
 grails.plugin.cookiesession.enabled = true
 grails.plugin.cookiesession.encryptcookie = true
 grails.plugin.cookiesession.cryptoalgorithm = "Blowfish" // DESEde,DES,AES,Blowfish
-grails.plugin.cookiesession.secret = "This is my secret."
+grails.plugin.cookiesession.secret = "123456789"
 grails.plugin.cookiesession.cookiecount = 10
 grails.plugin.cookiesession.maxcookiesize = 2048
 grails.plugin.cookiesession.sessiontimeout = 3600 // 120
 grails.plugin.cookiesession.cookiename = 'oatmeal'
 grails.plugin.cookiesession.condenseexceptions = true
 grails.plugin.cookiesession.serializer = 'kryo'
-grails.plugin.cookiesession.springsecuritycompatibility = true
+grails.plugin.cookiesession.springsecuritycompatibility = true 
 
 // Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'test.cookie.plugin.User'

@@ -17,6 +17,8 @@ class BootStrap {
       def userRole = new test.cookie.plugin.Role(authority: 'ROLE_USER').save(failOnError: true)
 
       test.cookie.plugin.UserRole.create(user, userRole).save(failOnError: true)
+
+      //com.esotericsoftware.minlog.Log.TRACE()
     }
 
     def destroy = {

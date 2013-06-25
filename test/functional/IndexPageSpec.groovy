@@ -227,4 +227,33 @@ class IndexPageSpec extends GebReportingSpec {
     then:
       username == "testuser"
   }
+
+  def "test delayed session creation"(){
+    when: 
+      to  Logout
+      to  WhoAmI
+    then:
+      username != "testuser"
+
+    when:
+      to SessionExists 
+
+    then:
+      sessionExists == false
+
+    when:
+      to Login
+      username = "testuser"
+      password = "password"
+      submit.click()
+      to SessionExists
+    then:
+      sessionExists == true
+
+    when:
+      to Logout
+      to SessionExists
+    then:
+      sessionExists == false
+  }
 }

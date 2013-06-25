@@ -161,11 +161,20 @@ class IndexController {
     render "reauthenticated"
   }
 
+  def assignSecurityContextNull(){
+    session.SPRING_SECURITY_CONTEXT = "test"
+    render text: "assigned null to SPRING_SECURITY_CONTEXT"
+  }
+
   @Secured(['ROLE_USER'])
   def securedMethod(){
     if( springSecurityService.isLoggedIn() )
       render "<html><span id=\"username\">${springSecurityService.principal.username}</span></html>"
     else
       render "<html><span id=\"username\"></span></html>"
+  }
+
+  def sessionExists(){
+    render text: "${request.getSession(false) != null}"
   }
 }
