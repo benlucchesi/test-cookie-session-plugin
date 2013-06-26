@@ -56,9 +56,7 @@ grails.project.dependency.resolution = {
           excludes 'xml-apis'
         }
 
-        runtime 'com.esotericsoftware.kryo:kryo:2.20'
-        runtime 'org.objenesis:objenesis:1.3'
-        runtime 'de.javakaffee:kryo-serializers:0.22'
+        //compile ('de.javakaffee:kryo-serializers:0.23')
     }
 
     plugins {
@@ -77,6 +75,7 @@ grails.project.dependency.resolution = {
 
         //runtime ":cookie-session:2.0.7"
         compile ":spring-security-core:1.2.7.3"
+        compile ":spring-security-acl:1.1.1"
 
         build ":tomcat:$grailsVersion"
         //build ':jetty:2.0.2'

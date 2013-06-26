@@ -93,9 +93,12 @@ log4j = {
     //trace 'com.granicus.grails.plugins.cookiesession.KryoSessionSerializer'
     //trace 'com.granicus.grails.plugins.cookiesession.CookieSessionRepository'
     trace 'com.granicus.grails.plugins.cookiesession.GrailsUserSerializer'
+    trace 'com.granicus.grails.plugins.cookiesession.UsernamePasswordAuthenticationTokenSerializer'
+    trace 'com.granicus.grails.plugins.cookiesession.GrantedAuthorityImplSerializer'
 
-    trace 'org.springframework.security.web.context.SecurityContextPersistenceFilter',
-          'org.springframework.security.web.context.HttpSessionSecurityContextRepository'
+
+    //trace 'org.springframework.security.web.context.SecurityContextPersistenceFilter',
+    //      'org.springframework.security.web.context.HttpSessionSecurityContextRepository'
 
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
