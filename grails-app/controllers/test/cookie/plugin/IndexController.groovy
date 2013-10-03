@@ -61,29 +61,35 @@ class IndexController {
     def testFlow = {
       flowStart{
         action{
+          log.trace "testFlow - flowStart()"
           flow.value1 = "flowStart"
           FlowEntry fs = new FlowEntry()
           fs.message = "flowStart"
           fs.save()
+          flow.persistenceContext.evict(fs)
         }
         on("success").to("step1")
       }
       step1{
         on("next"){
+          log.trace "testFlow - step1()"
           flow.value2 = "step1"
           FlowEntry fs = new FlowEntry()
           fs.message = "step1"
           fs.save()
+          flow.persistenceContext.evict(fs)
         }.to("step2")
         on("cancel").to("flowStart")
       }
 
       step2{
         on("next"){
+          log.trace "testFlow - step2()"
           flow.value3 = "step2"
           FlowEntry fs = new FlowEntry()
           fs.message = "step2"
-          fs.save(true)
+          fs.save()
+          flow.persistenceContext.evict(fs)
         }.to("step3")
         on("back").to("step1")
         on("cancel").to("flowStart")
@@ -91,6 +97,7 @@ class IndexController {
 
       step3{
         on("next"){
+          log.trace "testFlow - step3()"
           flow.value4 = "step3"
           FlowEntry fs = new FlowEntry()
           fs.message = "step3"

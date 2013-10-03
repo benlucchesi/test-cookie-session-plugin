@@ -5,6 +5,10 @@ import geb.spock.GebReportingSpec
 
 class IndexPageSpec extends GebReportingSpec {
 
+  def setup(){
+    browser.baseUrl = "https://localhost:8443/test-cookie-session-plugin/"
+  }
+
   def "data written to the session should be retrievable from the session"(){
     given:
       to AssignToSession, key: "lastname", val: "lucchesi"

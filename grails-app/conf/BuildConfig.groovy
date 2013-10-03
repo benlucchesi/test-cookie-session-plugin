@@ -56,7 +56,7 @@ grails.project.dependency.resolution = {
           excludes 'xml-apis'
         }
 
-        //compile ('de.javakaffee:kryo-serializers:0.23')
+        compile 'de.javakaffee:kryo-serializers:0.23'
     }
 
     plugins {
@@ -73,7 +73,7 @@ grails.project.dependency.resolution = {
         //runtime ":cached-resources:1.0"
         //runtime ":yui-minify-resources:0.1.4"
 
-        //runtime ":cookie-session:2.0.7"
+        runtime ":cookie-session:2.0.11"
         compile ":spring-security-core:1.2.7.3"
         compile ":spring-security-acl:1.1.1"
 
@@ -94,5 +94,5 @@ grails.project.dependency.resolution = {
     }
 }
 
-// uncomment during development and  assign path to local source. remember to comment out the compile statement above!
-grails.plugin.location.'grails-cookie-session' = "../grails-cookie-session-v2"
+// uncomment during development and  assign path to local source. remember to comment out the compile statement above
+//grails.plugin.location.'grails-cookie-session' = "../grails-cookie-session-v2"
