@@ -85,6 +85,9 @@
 </head>
 
 <body>
+  
+<h1>Login Page</h1>
+
 <div id='login'>
 	<div class='inner'>
 		<div class='fheader'><g:message code="springSecurity.login.header"/></div>

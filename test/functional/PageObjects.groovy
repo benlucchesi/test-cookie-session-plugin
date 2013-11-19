@@ -1,6 +1,7 @@
 import geb.*
 
 class AssignToSession extends Page {
+  static at = { $('h1').text() == 'Assign To Session' }
   static url = "index/assignToSession"
   static content = {
     key(wait:true) { $('#key').text() }
@@ -17,10 +18,12 @@ class DumpSession extends Page {
 }
 
 class StoreLargeException extends Page {
+  static at = { }
   static url = "index/storeLargeException"
 }
 
 class AssignToFlash extends Page {
+  static at = { $('h1').text() == 'Assign To Flash' }
   static url = "index/assignToFlash"
   static content = {
     key(wait:true) { $('#key').text() }
@@ -47,7 +50,7 @@ class TestWebflow extends Page {
 }
 
 class Login extends Page {
- static at = { $('title').text() == "Login Page" }
+ static at = { $('h1').text() == "Login Page" }
  static url = "login/auth"
  static content = {
     username { $('#username') }
@@ -65,7 +68,7 @@ class RedirectTest extends Page{
 }
 
 class RedirectTarget extends Page{
-  static at = { $('title').text() == "Redirect Target" }
+  static at = { $('h1').text() == "Redirect Target" }
   static url = "index/redirectTarget"
   static content = {
     flashMessage(wait:true) { $('#flashMessage').text() }

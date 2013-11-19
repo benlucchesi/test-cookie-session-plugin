@@ -91,18 +91,18 @@ log4j = {
           
     error 'com.granicus.grails.plugins.cookiesession.JavaSessionSerializer'
     error 'com.granicus.grails.plugins.cookiesession.KryoSessionSerializer'
-    error 'com.granicus.grails.plugins.cookiesession.CookieSessionRepository'
+    trace 'com.granicus.grails.plugins.cookiesession.CookieSessionRepository'
     error 'com.granicus.grails.plugins.cookiesession.GrailsUserSerializer'
     error 'com.granicus.grails.plugins.cookiesession.UsernamePasswordAuthenticationTokenSerializer'
     error 'com.granicus.grails.plugins.cookiesession.GrantedAuthorityImplSerializer'
 
-    trace 'grails.app.test.cookie.plugin.IndexController'
-    trace 'org.springframework.webflow'
+    //trace 'grails.app.test.cookie.plugin.IndexController'
+    //trace 'org.springframework.webflow'
 
     //trace 'org.springframework.security.web.context.SecurityContextPersistenceFilter',
     //      'org.springframework.security.web.context.HttpSessionSecurityContextRepository'
 
-    info 'org.codehaus.groovy.grails.web.servlet',        // controllers
+    error 'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
            'org.codehaus.groovy.grails.web.sitemesh',       // layouts
            'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
@@ -128,7 +128,7 @@ grails.plugin.cookiesession.sessiontimeout = 3600 // 120
 grails.plugin.cookiesession.cookiename = 'oatmeal'
 grails.plugin.cookiesession.condenseexceptions = true
 grails.plugin.cookiesession.serializer = 'kryo'
-grails.plugin.cookiesession.setsecure = true
+grails.plugin.cookiesession.setsecure = false
 grails.plugin.cookiesession.springsecuritycompatibility = true 
 
 // Added by the Spring Security Core plugin:

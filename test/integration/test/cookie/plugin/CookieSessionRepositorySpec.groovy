@@ -1,6 +1,12 @@
 package test.cookie.plugin
 
+import spock.lang.*
 import grails.plugin.spock.IntegrationSpec
+import grails.test.mixin.*
+import grails.test.mixin.support.*
+import org.junit.*
+
+
 import org.codehaus.groovy.grails.plugins.testing.*
 import com.granicus.grails.plugins.cookiesession.*
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils

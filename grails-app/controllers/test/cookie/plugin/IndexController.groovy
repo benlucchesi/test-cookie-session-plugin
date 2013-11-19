@@ -17,7 +17,7 @@ class IndexController {
   
     def assignToSession(){
       session."${params.key}" = params.val
-      render model: [key: params.key, val: params.val], view: "assignToSession"
+      render model: [key: params.key, val: params.val, assignTo: 'Session'], view: "assignToSession"
     }
 
     def dumpSession(){
@@ -35,7 +35,7 @@ class IndexController {
     def assignToFlash(){
       flash."${params.key}" = params.val
       // reusing the assignToSession view on purpose
-      render model: [key: params.key, val: params.val], view: "assignToSession" 
+      render model: [key: params.key, val: params.val, assignTo: 'Flash'], view: "assignToSession" 
     }
 
     def dumpFlash(){
@@ -184,4 +184,15 @@ class IndexController {
   def sessionExists(){
     render text: "${request.getSession(false) != null}"
   }
+
+  def updateSessionCookieConfig(){
+
+    assert params.attribute != null
+    assert params.value != null
+
+    servletContext.sessionCookieConfig."${params.attribute}" = params.value
+    def newValue = servletContext.sessionCookieConfig."${params.attribute}"
+    render text: "servletContext.sessionCookieConfig.${params.attribute} == ${newValue}" 
+  }
+
 }

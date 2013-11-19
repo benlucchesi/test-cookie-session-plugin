@@ -1,7 +1,8 @@
 
-import geb.*
-//import geb.spock.GebSpec
-import geb.spock.GebReportingSpec
+import geb.spock.*
+import pages.*
+import org.junit.Test
+import geb.Browser
 
 class IndexPageSpec extends GebReportingSpec {
 
