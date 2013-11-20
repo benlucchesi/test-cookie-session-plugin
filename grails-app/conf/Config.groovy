@@ -121,7 +121,7 @@ log4j = {
 // test cryptoalgorithm /w different algorithms
 grails.plugin.cookiesession.enabled = true
 grails.plugin.cookiesession.encryptcookie = true
-grails.plugin.cookiesession.cryptoalgorithm = "Blowfish" // DESEde,DES,AES,Blowfish
+grails.plugin.cookiesession.cryptoalgorithm = "Blowfish/CBC/PKCS5Padding" // DESEde,DES,AES,Blowfish
 grails.plugin.cookiesession.secret = "123456789"
 grails.plugin.cookiesession.cookiecount = 10
 grails.plugin.cookiesession.maxcookiesize = 4000
