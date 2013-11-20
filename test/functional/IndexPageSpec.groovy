@@ -120,7 +120,7 @@ class IndexPageSpec extends GebReportingSpec {
 
   def "the cookie session should expire when the max inactive interval is exceeded"(){
     given:
-      go "index/configureSessionRepository?maxInactiveInterval=10000"
+      go "index/configureSessionRepository?maxInactiveInterval=10"
       to AssignToSession, key: "lastname", val: "lucchesi"
     expect:
       at AssignToSession
@@ -166,6 +166,11 @@ class IndexPageSpec extends GebReportingSpec {
 
   def "the cookie session should be method compatible with Secured attributes"(){
     when:
+      go "https://localhost:8443/test-cookie-session-plugin/logout"
+    then:
+      println "should be logged out..."
+
+    when:
       to SecuredPage
     then: 
       at Login
@@ -200,9 +205,9 @@ class IndexPageSpec extends GebReportingSpec {
 
   def "detect Locale serialization problem after multiple refreshes"(){
    when:
-      to SecuredPage
+      to  SecuredPage
     then: 
-      at Login
+      at  Login
    
     when:
       username = "testuser"

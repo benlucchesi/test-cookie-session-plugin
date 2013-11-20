@@ -83,7 +83,7 @@ class CookieSessionRepositorySpec extends IntegrationSpec {
     when:
       sessionRepository.cookieCount = 1
       sessionRepository.maxCookieSize = 4096
-      sessionRepository.maxInactiveInterval = 10000
+      sessionRepository.maxInactiveInterval = 10
       sessionRepository.cookieName = "testcookie"
       sessionRepository.saveSession(session,response)
 

@@ -87,7 +87,8 @@ log4j = {
 
     //trace 'com.granicus.grails.plugins.cookiesession.ExceptionCondenser'
     //trace 'testapp.DumpSession'
-    //trace 'com.granicus.grails.plugins.cookiesession.SecurityContextSessionPersistenceListener'
+    trace 'com.granicus.grails.plugins.cookiesession.SecurityContextSessionPersistenceListener'
+    trace com.granicus.grails.plugins.cookiesession.CookieSessionFilter
           
     error 'com.granicus.grails.plugins.cookiesession.JavaSessionSerializer'
     error 'com.granicus.grails.plugins.cookiesession.KryoSessionSerializer'
@@ -124,11 +125,16 @@ grails.plugin.cookiesession.cryptoalgorithm = "Blowfish" // DESEde,DES,AES,Blowf
 grails.plugin.cookiesession.secret = "123456789"
 grails.plugin.cookiesession.cookiecount = 10
 grails.plugin.cookiesession.maxcookiesize = 4000
+
+
+grails.plugin.cookiesession.usesessioncookieconfig = true
 grails.plugin.cookiesession.sessiontimeout = 3600 // 120
-grails.plugin.cookiesession.cookiename = 'oatmeal'
+grails.plugin.cookiesession.cookiename = 'oatmeal1'
+grails.plugin.cookiesession.setsecure = true
+
+
 grails.plugin.cookiesession.condenseexceptions = true
 grails.plugin.cookiesession.serializer = 'kryo'
-grails.plugin.cookiesession.setsecure = false
 grails.plugin.cookiesession.springsecuritycompatibility = true 
 
 // Added by the Spring Security Core plugin:

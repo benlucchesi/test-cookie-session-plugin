@@ -19,6 +19,18 @@ class BootStrap {
       test.cookie.plugin.UserRole.create(user, userRole).save(failOnError: true)
 
       //com.esotericsoftware.minlog.Log.TRACE()
+
+      try{
+        // configure sessionCookieConfig
+        if( servletContext.metaClass.sessionCookieConfig != null ){
+          servletContext.sessionCookieConfig.name = 'sugar2'
+          servletContext.sessionCookieConfig.secure = false
+          servletContext.sessionCookieConfig.maxAge = 3600
+        }
+      }
+      catch( excp ){
+        printnl excp
+      }
     }
 
     def destroy = {

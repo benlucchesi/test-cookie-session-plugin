@@ -176,9 +176,9 @@ class IndexController {
   @Secured(['ROLE_USER'])
   def securedMethod(){
     if( springSecurityService.isLoggedIn() )
-      render "<html><span id=\"username\">${springSecurityService.principal.username}</span></html>"
+      render text: "<html><span id=\"username\">${springSecurityService.principal.username}</span></html>"
     else
-      render "<html><span id=\"username\"></span></html>"
+      render text: "<html><span id=\"username\"></span></html>"
   }
 
   def sessionExists(){
@@ -190,7 +190,7 @@ class IndexController {
     assert params.attribute != null
     assert params.value != null
 
-    servletContext.sessionCookieConfig."${params.attribute}" = params.value
+    servletContext.sessionCookieConfig."${params.attribute}" = params.value.asType(Class.forName(params.type))
     def newValue = servletContext.sessionCookieConfig."${params.attribute}"
     render text: "servletContext.sessionCookieConfig.${params.attribute} == ${newValue}" 
   }
