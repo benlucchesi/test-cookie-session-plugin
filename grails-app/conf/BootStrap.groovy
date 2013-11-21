@@ -22,7 +22,7 @@ class BootStrap {
 
       try{
         // configure sessionCookieConfig
-        if( servletContext.metaClass.sessionCookieConfig != null ){
+        if( servletContext.majorVersion >= 3 ){
           servletContext.sessionCookieConfig.name = 'sugar2'
           servletContext.sessionCookieConfig.secure = false
           servletContext.sessionCookieConfig.maxAge = 3600
