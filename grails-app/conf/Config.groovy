@@ -122,15 +122,16 @@ log4j = {
 grails.plugin.cookiesession.enabled = true
 grails.plugin.cookiesession.encryptcookie = true
 grails.plugin.cookiesession.cryptoalgorithm = "Blowfish/CBC/PKCS5Padding" // DESEde,DES,AES,Blowfish
-grails.plugin.cookiesession.secret = "123456789"
+//grails.plugin.cookiesession.secret = "123456789"
+grails.plugin.cookiesession.secret = [1,2,3,4,5,6,7,8,9]
 grails.plugin.cookiesession.cookiecount = 10
 grails.plugin.cookiesession.maxcookiesize = 4000
 
 
 grails.plugin.cookiesession.usesessioncookieconfig = true
-grails.plugin.cookiesession.sessiontimeout = 3600 // 120
+grails.plugin.cookiesession.sessiontimeout = 7200 
 grails.plugin.cookiesession.cookiename = 'oatmeal1'
-grails.plugin.cookiesession.setsecure = true
+grails.plugin.cookiesession.setsecure = false
 
 
 grails.plugin.cookiesession.condenseexceptions = true

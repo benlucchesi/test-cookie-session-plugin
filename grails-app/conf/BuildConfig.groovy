@@ -76,7 +76,7 @@ grails.project.dependency.resolution = {
         //runtime ":cached-resources:1.0"
         //runtime ":yui-minify-resources:0.1.4"
 
-        //runtime ":cookie-session:2.0.11"
+        //runtime ":cookie-session:2.0.12"
         compile ":spring-security-core:1.2.7.3"
         compile ":spring-security-acl:1.1.1"
 
