@@ -10,9 +10,10 @@ import org.openqa.selenium.firefox.FirefoxDriver
       // Use htmlunit as the default
       // See: http://code.google.com/p/selenium/wiki/HtmlUnitDriver
       driver = { 
-        def driver = new HtmlUnitDriver()
-        driver.javascriptEnabled = true
-        driver
+        //def driver = new HtmlUnitDriver()
+        //driver.javascriptEnabled = true
+        //driver
+        new FirefoxDriver()
       }
 
       environments {
@@ -23,6 +24,11 @@ import org.openqa.selenium.firefox.FirefoxDriver
           driver = { new ChromeDriver() }
         }
         firefox{
-          driver = { new FirefoxDriver() }
+          driver = { 
+            //DesiredCapabilities capabilities = DesiredCapabilities.firefox()
+            //capabilities.setCapability("version", "17")
+            //new FirefoxDriver(capabilities) 
+            new FirefoxDriver()
+          }
         }
       }

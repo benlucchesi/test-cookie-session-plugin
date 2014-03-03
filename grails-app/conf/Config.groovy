@@ -83,16 +83,16 @@ log4j = {
     //debug 'org.eclipse.jetty.server.AbstractHttpConnection'
 
     trace 'com.granicus.grails.plugins.cookiesession.SessionRepositoryResponseWrapper'
-    trace 'com.granicus.grails.plugins.cookiesession.SessionRepositoryRequestWrapper'
+    warn 'com.granicus.grails.plugins.cookiesession.SessionRepositoryRequestWrapper'
 
     //trace 'com.granicus.grails.plugins.cookiesession.ExceptionCondenser'
     //trace 'testapp.DumpSession'
-    trace 'com.granicus.grails.plugins.cookiesession.SecurityContextSessionPersistenceListener'
-    trace com.granicus.grails.plugins.cookiesession.CookieSessionFilter
+    warn 'com.granicus.grails.plugins.cookiesession.SecurityContextSessionPersistenceListener'
+    warn 'com.granicus.grails.plugins.cookiesession.CookieSessionFilter'
           
     error 'com.granicus.grails.plugins.cookiesession.JavaSessionSerializer'
-    error 'com.granicus.grails.plugins.cookiesession.KryoSessionSerializer'
-    trace 'com.granicus.grails.plugins.cookiesession.CookieSessionRepository'
+    warn 'com.granicus.grails.plugins.cookiesession.KryoSessionSerializer'
+    warn 'com.granicus.grails.plugins.cookiesession.CookieSessionRepository'
     error 'com.granicus.grails.plugins.cookiesession.GrailsUserSerializer'
     error 'com.granicus.grails.plugins.cookiesession.UsernamePasswordAuthenticationTokenSerializer'
     error 'com.granicus.grails.plugins.cookiesession.GrantedAuthorityImplSerializer'
@@ -121,9 +121,10 @@ log4j = {
 // test cryptoalgorithm /w different algorithms
 grails.plugin.cookiesession.enabled = true
 grails.plugin.cookiesession.encryptcookie = true
-grails.plugin.cookiesession.cryptoalgorithm = "Blowfish/CBC/PKCS5Padding" // DESEde,DES,AES,Blowfish
+grails.plugin.cookiesession.cryptoalgorithm = "Blowfish" // DESEde,DES,AES,Blowfish
+grails.plugin.cookiesession.secret = "this is a secret"
 //grails.plugin.cookiesession.secret = "123456789"
-grails.plugin.cookiesession.secret = [1,2,3,4,5,6,7,8,9]
+//grails.plugin.cookiesession.secret = [1,2,3,4,5,6,7,8,9]
 grails.plugin.cookiesession.cookiecount = 10
 grails.plugin.cookiesession.maxcookiesize = 4000
 

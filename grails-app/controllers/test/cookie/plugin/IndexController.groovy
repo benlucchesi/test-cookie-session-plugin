@@ -195,4 +195,12 @@ class IndexController {
     render text: "servletContext.sessionCookieConfig.${params.attribute} == ${newValue}" 
   }
 
+  def sendError1(){
+    response.sendError(401)
+  }
+
+  def sendError2(){
+    response.sendError(401,"testing send error")
+  }
+
 }

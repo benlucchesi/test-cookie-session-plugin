@@ -99,3 +99,13 @@ class SessionExists extends Page{
     sessionExists{ $().text().toBoolean() } 
   }
 }
+
+class SendError1 extends Page{
+  static url = "index/sendError1"
+  static at = { $('h1').text() == "HTTP Status 401 -" }
+}
+
+class SendError2 extends Page{
+  static url = "index/sendError2"
+  static at = { $('h1').text() == "HTTP Status 401 - testing send error" }
+}

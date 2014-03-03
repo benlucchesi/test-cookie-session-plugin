@@ -266,4 +266,47 @@ class IndexPageSpec extends GebReportingSpec {
     then:
       sessionExists == false
   }
+
+  def "sendError should cause session to be written"(){
+    when: 
+      to  Logout
+      to  WhoAmI
+    then:
+      username != "testuser"
+
+    when:
+      to SessionExists 
+
+    then:
+      sessionExists == false
+
+    when:
+      to Login
+      username = "testuser"
+      password = "password"
+      submit.click()
+      to SessionExists
+    then:
+      sessionExists == true
+
+    when: "server send's error"
+      to SendError1
+    then:
+      at SendError1 
+   
+    when: "verify that session exists"
+      to SessionExists
+    then:
+      sessionExists == true
+
+    when: "server send's an error with a message"
+      to SendError2
+    then:
+      at SendError2
+
+    when: "verify that session exists"
+      to SessionExists
+    then:
+      sessionExists == true
+  }
 }
