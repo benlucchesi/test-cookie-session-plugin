@@ -76,7 +76,7 @@ grails.project.dependency.resolution = {
         //runtime ":cached-resources:1.0"
         //runtime ":yui-minify-resources:0.1.4"
 
-        //runtime ":cookie-session:2.0.12"
+        runtime ":cookie-session:2.0.14"
         compile ":spring-security-core:1.2.7.3"
         compile ":spring-security-acl:1.1.1"
 
@@ -92,4 +92,4 @@ grails.project.dependency.resolution = {
 }
 
 // uncomment during development and  assign path to local source. remember to comment out the compile statement above
-grails.plugin.location.'grails-cookie-session' = "../grails-cookie-session-v2"
+//grails.plugin.location.'grails-cookie-session' = "../grails-cookie-session-v2"
