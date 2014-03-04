@@ -9,7 +9,7 @@ import org.junit.*
 
 import org.codehaus.groovy.grails.plugins.testing.*
 import com.granicus.grails.plugins.cookiesession.*
-import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
+import grails.plugin.springsecurity.SpringSecurityUtils
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken as UPAT
 
 class CookieSessionRepositorySpec extends IntegrationSpec {

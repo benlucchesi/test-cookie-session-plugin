@@ -50,7 +50,8 @@ class TestWebflow extends Page {
 }
 
 class Login extends Page {
- static at = { $('h1').text() == "Login Page" }
+ //static at = { $('h1').text() == "Login Page" }
+ static at = { title == "springSecurity.login.title" }
  static url = "login/auth"
  static content = {
     username { $('#username') }

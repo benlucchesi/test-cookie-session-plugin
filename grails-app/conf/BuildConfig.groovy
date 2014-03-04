@@ -37,6 +37,8 @@ grails.project.dependency.resolution = {
         mavenRepo "http://repository.codehaus.org"
         mavenRepo "http://download.java.net/maven/2/"
         mavenRepo "http://repository.jboss.com/maven2/"
+
+        mavenRepo "http://repo.spring.io/milestone/"
     }
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
@@ -77,8 +79,9 @@ grails.project.dependency.resolution = {
         //runtime ":yui-minify-resources:0.1.4"
 
         //runtime ":cookie-session:2.0.12"
-        compile ":spring-security-core:1.2.7.3"
-        compile ":spring-security-acl:1.1.1"
+
+        compile ":spring-security-acl:2.0-RC1"
+        compile ":spring-security-core:2.0-RC2"
 
         build ":tomcat:$grailsVersion"
         //build ':jetty:2.0.2'

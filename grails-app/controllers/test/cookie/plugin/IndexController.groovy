@@ -1,7 +1,7 @@
 package test.cookie.plugin
 import grails.converters.JSON
-import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
-import grails.plugins.springsecurity.Secured
+import grails.plugin.springsecurity.SpringSecurityUtils
+import grails.plugin.springsecurity.annotation.Secured
 
 class IndexController {
 

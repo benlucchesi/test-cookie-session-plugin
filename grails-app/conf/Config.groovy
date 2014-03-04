@@ -82,6 +82,7 @@ log4j = {
     //debug 'org.eclipse.jetty'
     //debug 'org.eclipse.jetty.server.AbstractHttpConnection'
 
+
     trace 'com.granicus.grails.plugins.cookiesession.SessionRepositoryResponseWrapper'
     warn 'com.granicus.grails.plugins.cookiesession.SessionRepositoryRequestWrapper'
 
@@ -90,12 +91,15 @@ log4j = {
     warn 'com.granicus.grails.plugins.cookiesession.SecurityContextSessionPersistenceListener'
     warn 'com.granicus.grails.plugins.cookiesession.CookieSessionFilter'
           
-    error 'com.granicus.grails.plugins.cookiesession.JavaSessionSerializer'
-    warn 'com.granicus.grails.plugins.cookiesession.KryoSessionSerializer'
     warn 'com.granicus.grails.plugins.cookiesession.CookieSessionRepository'
-    error 'com.granicus.grails.plugins.cookiesession.GrailsUserSerializer'
-    error 'com.granicus.grails.plugins.cookiesession.UsernamePasswordAuthenticationTokenSerializer'
-    error 'com.granicus.grails.plugins.cookiesession.GrantedAuthorityImplSerializer'
+
+    error 'com.granicus.grails.plugins.cookiesession.JavaSessionSerializer'
+    trace 'com.granicus.grails.plugins.cookiesession.KryoSessionSerializer'
+    trace 'com.granicus.grails.plugins.cookiesession.SimpleGrantedAuthoritySerializer'
+    trace 'com.granicus.grails.plugins.cookiesession.UserSerializer'
+    trace 'com.granicus.grails.plugins.cookiesession.GrailsUserSerializer'
+    trace 'com.granicus.grails.plugins.cookiesession.UsernamePasswordAuthenticationTokenSerializer'
+    trace 'com.granicus.grails.plugins.cookiesession.GrantedAuthorityImplSerializer'
 
     //trace 'grails.app.test.cookie.plugin.IndexController'
     //trace 'org.springframework.webflow'
@@ -139,7 +143,23 @@ grails.plugin.cookiesession.condenseexceptions = true
 grails.plugin.cookiesession.serializer = 'kryo'
 grails.plugin.cookiesession.springsecuritycompatibility = true 
 
+grails.plugin.springsecurity.logout.postOnly = false
+grails.plugin.springsecurity.useSessionFixationPrevention = false
+
+
 // Added by the Spring Security Core plugin:
-grails.plugins.springsecurity.userLookup.userDomainClassName = 'test.cookie.plugin.User'
-grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'test.cookie.plugin.UserRole'
-grails.plugins.springsecurity.authority.className = 'test.cookie.plugin.Role'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'test.cookie.plugin.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'test.cookie.plugin.UserRole'
+grails.plugin.springsecurity.authority.className = 'test.cookie.plugin.Role'
+grails.plugin.springsecurity.fii.rejectPublicInvocations = false
+grails.plugin.springsecurity.rejectIfNoRule = false
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+	'/':                              ['permitAll'],
+	'/index':                         ['permitAll'],
+	'/index.gsp':                     ['permitAll'],
+	'/**/js/**':                      ['permitAll'],
+	'/**/css/**':                     ['permitAll'],
+	'/**/images/**':                  ['permitAll'],
+	'/**/favicon.ico':                ['permitAll']
+]
+
