@@ -8,6 +8,8 @@ grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
 
+grails.project.dependency.resolver = "maven"
+
 grails.project.dependency.resolution = {
 
     // inherit Grails' default dependencies
@@ -40,7 +42,7 @@ grails.project.dependency.resolution = {
 
         // runtime 'mysql:mysql-connector-java:5.1.20'
 
-        compile "org.grails:grails-webflow:$grailsVersion"
+        //compile "org.grails:grails-webflow:2.2.5"
 
         test "org.spockframework:spock-grails-support:0.7-groovy-2.0" // 2.2
 
@@ -56,17 +58,15 @@ grails.project.dependency.resolution = {
           excludes 'xml-apis'
         }
 
-        //compile ('de.javakaffee:kryo-serializers:0.23')
+        compile ('de.javakaffee:kryo-serializers:0.23')
     }
 
     plugins {
-        runtime ":hibernate:$grailsVersion"
+        runtime ':hibernate:3.6.10.2'
         runtime ":jquery:1.8.3"
-        runtime ":resources:1.1.6"
+        runtime ":resources:1.2.7"
 
-        compile ':webflow:2.0.0', {
-          exclude 'grails-webflow'
-        }
+        compile ':webflow:2.0.8.1'
 
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0"
@@ -77,7 +77,7 @@ grails.project.dependency.resolution = {
         compile ":spring-security-core:1.2.7.3"
         compile ":spring-security-acl:1.1.1"
 
-        build ":tomcat:$grailsVersion"
+        build ':tomcat:7.0.42'
         //build ':jetty:2.0.2'
 
         //runtime ":database-migration:1.3.2"
