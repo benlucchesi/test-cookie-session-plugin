@@ -238,7 +238,7 @@ class IndexPageSpec extends GebReportingSpec {
       username == "testuser"
   }
 
-  def "test delayed session creation"(){
+  def "test to verify that session is created always when spring security is enabled"(){
     when: 
       to  Logout
       to  WhoAmI
@@ -249,7 +249,7 @@ class IndexPageSpec extends GebReportingSpec {
       to SessionExists 
 
     then:
-      sessionExists == false
+      sessionExists == true
 
     when:
       to Login
@@ -278,7 +278,7 @@ class IndexPageSpec extends GebReportingSpec {
       to SessionExists 
 
     then:
-      sessionExists == false
+      sessionExists == true
 
     when:
       to Login
