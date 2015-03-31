@@ -264,7 +264,7 @@ class IndexPageSpec extends GebReportingSpec {
       to Logout
       to SessionExists
     then:
-      sessionExists == false
+      sessionExists == true
   }
 
   def "sendError should cause session to be written"(){
