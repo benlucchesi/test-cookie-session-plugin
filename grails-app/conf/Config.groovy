@@ -88,18 +88,19 @@ log4j = {
 
     //trace 'com.granicus.grails.plugins.cookiesession.ExceptionCondenser'
     //trace 'testapp.DumpSession'
-    warn 'com.granicus.grails.plugins.cookiesession.SecurityContextSessionPersistenceListener'
-    warn 'com.granicus.grails.plugins.cookiesession.CookieSessionFilter'
+    error 'com.granicus.grails.plugins.cookiesession.SecurityContextSessionPersistenceListener'
+    trace 'com.granicus.grails.plugins.cookiesession.CookieSessionFilter'
+    trace 'org.springframework.webflow'
           
-    warn 'com.granicus.grails.plugins.cookiesession.CookieSessionRepository'
+    trace 'com.granicus.grails.plugins.cookiesession.CookieSessionRepository'
 
     error 'com.granicus.grails.plugins.cookiesession.JavaSessionSerializer'
-    trace 'com.granicus.grails.plugins.cookiesession.KryoSessionSerializer'
-    trace 'com.granicus.grails.plugins.cookiesession.SimpleGrantedAuthoritySerializer'
-    trace 'com.granicus.grails.plugins.cookiesession.UserSerializer'
-    trace 'com.granicus.grails.plugins.cookiesession.GrailsUserSerializer'
-    trace 'com.granicus.grails.plugins.cookiesession.UsernamePasswordAuthenticationTokenSerializer'
-    trace 'com.granicus.grails.plugins.cookiesession.GrantedAuthorityImplSerializer'
+    error 'com.granicus.grails.plugins.cookiesession.KryoSessionSerializer'
+    error 'com.granicus.grails.plugins.cookiesession.SimpleGrantedAuthoritySerializer'
+    error 'com.granicus.grails.plugins.cookiesession.UserSerializer'
+    error 'com.granicus.grails.plugins.cookiesession.GrailsUserSerializer'
+    error 'com.granicus.grails.plugins.cookiesession.UsernamePasswordAuthenticationTokenSerializer'
+    error 'com.granicus.grails.plugins.cookiesession.GrantedAuthorityImplSerializer'
 
     //trace 'grails.app.test.cookie.plugin.IndexController'
     //trace 'org.springframework.webflow'
